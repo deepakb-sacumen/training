@@ -1,49 +1,3 @@
-class Rectangle(object):
-    def __init__(self, length, width):
-        self.length = length
-        self.width = width
-
-    def area(self):
-        print("Area of Rectangle")
-        return self.length * self.width
-
-    def perimeter(self):
-        return 2 * self.length + 2 * self.width
-
-# Here we declare that the Square class inherits from the Rectangle class
-class Square(Rectangle):
-    def __init__(self, length):
-        super().__init__(length, length)
-
-    def area(self):
-        print("Area of a square")
-        # return self.length * self.length
-        area = super().area()
-        return area - 1
-
-class Cube(Square):
-    def surface_area(self):
-        face_area = super(Cube, self).area()
-        return face_area * 6
-
-    def volume(self):
-        face_area = super(Square, self).area()
-        return face_area * self.length
-
-
-if __name__ == "__main__":
-    square = Square(6)
-    print("Area of a square: ", square.area())
-    print("Perimeter of a square: ", square.perimeter())
-    # import pdb;pdb.set_trace()
-    cube = Cube(3)
-    
-    print("Area of a cube", cube.area())
-    print("Surface Area of a cube: ", cube.surface_area())
-    print("Volume of a cube: ", cube.volume())
-    
-    
-
 """
 Create a shape class which has a property number_of_sides
 Create Triangle class which inherits Shape class. Define Area of triangle
@@ -54,14 +8,14 @@ Define Area and perimeter of circle.
 
 Print number of sides, area of each object and Perimeter of Circle object
 """
-
-class Shape():
+class Shape(object):
     def __init__(self,number_of_sides):
         self.number_of_sides = number_of_sides
         print('number of sides: ',number_of_sides)
 
 class Triangle(Shape):
-    def __init__(self, base, height):
+    def __init__(self, base, height, number_of_sides):
+        super().__init__(number_of_sides)
         self.base = base
         self.height = height
 
@@ -70,7 +24,8 @@ class Triangle(Shape):
         return triangle_area
 
 class Rectangle(Shape):
-    def __init__(self, length, breadth):
+    def __init__(self, length, breadth, number_of_sides):
+        super().__init__(number_of_sides)
         self.length = length
         self.breadth = breadth
 
@@ -79,10 +34,16 @@ class Rectangle(Shape):
         return rectangle_area
 
 class Square(Rectangle):
-    pass
+    def __init__(self,length,number_of_sides):
+        super().__init__(length, length, number_of_sides)
+    
+    def area(self):
+        square_area = super(Square, self).area()
+        return square_area
 
 class Circle(Shape):
-    def __init__(self,radius):
+    def __init__(self,radius, number_of_sides):
+        super().__init__(number_of_sides)
         self.pi = 3.14
         self.radius = radius
 
@@ -96,10 +57,12 @@ class Circle(Shape):
 
 if __name__ == "__main__":
     shape = Shape(3)
-    triangle = Triangle(10,17)
-    rectangle = Rectangle(5,10)
-    circle = Circle(15)
+    triangle = Triangle(10,17,3)
+    rectangle = Rectangle(5,10,2)
+    square = Square(18,2)
+    circle = Circle(15,0)
     print('Area of Triangle: ', triangle.area())
     print('Area of Rectangle: ', rectangle.area())
+    print('Area of Square: ', square.area())
     print('Area of Circle: ', circle.area())
     print('Perimeter of Circle: ', circle.perimeter())

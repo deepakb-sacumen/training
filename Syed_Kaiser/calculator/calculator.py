@@ -1,61 +1,58 @@
-from constants import INCORRECT_VALUES
-from messages import INVALID_INPUT, TYPE_ERROR, USER_INPUT_MSSG
+class test_calculator():
+    def __init__(self,x,y):
+        self.x = x
+        self.y = y
 
-try:
-    class testCalculator():
+    
+    def add(self):
+        return (self.x+self.y)
 
-        def __init__(self,x,y):
-            self.x = x
-            self.y = y
+    def sub(self):
+        return (self.x-self.y)
 
+    def mul(self):
+        return (self.x*self.y)
         
-        def add(x,y):
-            return (x+y)
+    def div(self):
+        return (self.x/self.y)
 
-        def sub(x,y):
-            return (x-y)
+    def switch(self,operation):
 
-        def mul(x,y):
-            return (x*y)
-            
-        def div(x,y):
-            return (x/y)
-
-        def default():
-            return INCORRECT_VALUES
-
-
-
-        def switch(self,operation):
-            calculator = {
+        calculator = {
 
             "1": self.add,
             "2": self.sub,
             "3": self.mul,
             "4": self.div
-
         }
-            return calculator.get(operation, self.default)(x,y)
+        return calculator.get(operation)()
 
-    # x,y = input("enter the values separated by a space: ").split()
-    x, y = 10,0
 
-    operation = str(input(USER_INPUT_MSSG))
+try:
+    x = int(input("enter first value: "))
+    y = int(input("enter second value: "))
+    operation = str(input('Select any of the following operations: [1. Addition, 2. Subtraction, 3. Multiplication, 4. Division]: '))
 
-    if operation:
-        operate = testCalculator(int(x),int(y))
+    if operation and type(x) == type(y) == int:
+        operate = test_calculator(x,y)
         res = operate.switch(operation)
-
         print(res)
 
+    elif not operation or operation == '' and not x or not y:
+        print("Incorrect input")
+
+
+except ZeroDivisionError as e:
+    print("{}: {}".format(type(e).__name__,e))
+    
 except NameError as e:
-    print(INVALID_INPUT)
+    print("INVALID_INPUT")
 
 except TypeError as e:
-    print(TYPE_ERROR.format(operation))
+    print("TYPE ERROR")
 
 except SyntaxError as e:
     print("{}: {}".format(type(e).__name__,e))
 
-except ZeroDivisionError as e:
+except ValueError as e:
     print("{}: {}".format(type(e).__name__,e))
