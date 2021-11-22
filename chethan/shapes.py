@@ -35,24 +35,24 @@ class Shape(object):
         """
         print("number of sides:", sides)
     
-    def area(self):
+    def area(self) -> int:
         """Area of the shape."""
         return self.length * self.width
     
-    def perimeter(self):
+    def perimeter(self) -> int:
         """"Perimeter of shape"""
         return 2 * self.length + 2 * self.width
 
 class Rectangle(Shape):
-    def __init__(self, length):
+    def __init__(self, length) -> None:
         super().__init__(length, length)
 
-    def area(self):
+    def area(self) -> int:
         """Area of the rectangle."""
         area = super().area()
         return area
     
-    def perimeter(self):
+    def perimeter(self) -> int:
         """"Perimeter of rectangle"""
         perimeter = super().perimeter()
         return perimeter
@@ -61,23 +61,23 @@ class Triangle(Shape):
     def __init__(self, length):
         super().__init__(length, length)
     
-    def area(self):
+    def area(self) -> int:
         """Area of the triangle."""
         return super().area()/2
     
-    def perimeter(self):
+    def perimeter(self) -> int:
         """"Perimeter of triangle"""
         return super().perimeter() - self.length
 
 class Square(Rectangle):
-    def __init__(self, length):
+    def __init__(self, length) -> int:
         super().__init__(length)
     
-    def area(self):
+    def area(self) -> int:
         """Area of the square."""
         return super().area()
     
-    def perimeter(self):
+    def perimeter(self) -> int:
         """"Perimeter of square"""
         return super().perimeter()
     
