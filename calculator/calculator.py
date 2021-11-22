@@ -1,38 +1,40 @@
-# a = int(input("Enter a value"))
-# b = int(input("Enter b value"))
-# c = a+b
+""" Implemented the calculator using switch case """
 
 def add(a, b):
-    a += b
-    return a
+    return a + b
 
 def subtract(a, b):
-    a -= b
-    return a
+    return a - b
 
 def multiple(a, b):
-    a *= b
-    return a
+    return a * b
 
 def devide(a, b):
-    a /= b
-    return a
+    return a / b
 
-enter_your_function = {
+enterYourFunction = {
     1: add,
     2: subtract,
     3: multiple,
     4: devide
 }
+
 def switch(operation, a, b):
-  return enter_your_function.get(operation)(a, b)
+  return enterYourFunction.get(operation)(a, b)
+
 print('''enter_your_perform_operation:~
                     1. Addition
                     2. Subtraction
                     3. Multiplication
                     4. Division''')
+
 # To Take input from user
 choice = int(input("Select operation from 1,2,3,4 : "))
-a = int(input("Enter first number: "))
-b = int(input("Enter second number: "))
-print (switch(choice, a, b))
+
+if choice>=1 and choice<=4:
+    a = int(input("Enter first number: "))
+    b = int(input("Enter second number: "))
+    print (switch(choice, a, b))
+
+else:
+    print("Enter valid Your Function between 1 to 4")
