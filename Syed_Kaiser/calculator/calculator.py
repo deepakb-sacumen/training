@@ -1,5 +1,3 @@
-
-import pdb
 from constants import INCORRECT_VALUES
 from messages import INVALID_INPUT, TYPE_ERROR, USER_INPUT_MSSG
 
@@ -26,17 +24,18 @@ try:
         def default():
             return INCORRECT_VALUES
 
-        calculator = {
 
-            "1": add,
-            "2": sub,
-            "3": mul,
-            "4": div
-
-        }
 
         def switch(self,operation):
-            return self.calculator.get(operation, self.default)(x,y)
+            calculator = {
+
+            "1": self.add,
+            "2": self.sub,
+            "3": self.mul,
+            "4": self.div
+
+        }
+            return calculator.get(operation, self.default)(x,y)
 
     # x,y = input("enter the values separated by a space: ").split()
     x, y = 10,0
