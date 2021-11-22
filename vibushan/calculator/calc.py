@@ -23,20 +23,22 @@ class calc():
 if __name__ == "__main__":
 
     print('''You can perform operation
-    1. Addition as Add
-    2. Subtraction as Sub
-    3. Multiplication as Multiply
-    4. Division as Divide
+    1. Addition as add
+    2. Subtraction as sub
+    3. Multiplication as multiply
+    4. Division as divide
     ''')
 
+
     def calculate(operation_key, num1, num2):
+        calculator = calc(num1,num2)
         operations = {
-        'Add': calc.add,
-        'Sub' : calc.subtract,
-        'Multiply' : calc.multiply,
-        'Divide': calc.divide,
+        'add': calculator.add(),
+        'sub' : calculator.subtract(),
+        'multiply' : calculator.multiply(),
+        'divide': calculator.divide(),
         }
-        return operations.get(operation_key)(num1,num2)
+        return operations.get(operation_key)
 
     try :
         operation_key = input("Enter the operation of two integer numbers:")
