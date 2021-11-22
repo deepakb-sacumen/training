@@ -10,17 +10,37 @@ Print number of sides, area of each object and Perimeter of Circle object
 """
 
 class Shape(object):
-    def __init__(self,length, width):
+    def __init__(self,length, width) -> None:
+        """Intialize two sides
+        :type length: int
+        :param length:  length of shape
+
+        :type width: int
+        :param width: width of shape
+
+        :return: None
+        :rtype: None
+        """
         self.length = length
         self.width = width
 
-    def number_0f_sides(self, sides):
+    def number_0f_sides(self, sides) -> None:
+        """Number of sides of shape
+        
+        :type sides: str
+        :param sides: Number of sides
+
+        :return: None
+        :rtype: None
+        """
         print("number of sides:", sides)
     
     def area(self):
+        """Area of the shape."""
         return self.length * self.width
     
     def perimeter(self):
+        """"Perimeter of shape"""
         return 2 * self.length + 2 * self.width
 
 class Rectangle(Shape):
@@ -28,10 +48,12 @@ class Rectangle(Shape):
         super().__init__(length, length)
 
     def area(self):
+        """Area of the rectangle."""
         area = super().area()
         return area
     
     def perimeter(self):
+        """"Perimeter of rectangle"""
         perimeter = super().perimeter()
         return perimeter
 
@@ -40,9 +62,11 @@ class Triangle(Shape):
         super().__init__(length, length)
     
     def area(self):
+        """Area of the triangle."""
         return super().area()/2
     
     def perimeter(self):
+        """"Perimeter of triangle"""
         return super().perimeter() - self.length
 
 class Square(Rectangle):
@@ -50,12 +74,16 @@ class Square(Rectangle):
         super().__init__(length)
     
     def area(self):
+        """Area of the square."""
         return super().area()
     
     def perimeter(self):
+        """"Perimeter of square"""
         return super().perimeter()
     
 if __name__ == "__main__":
+    """"Main function call"""
+    #calculation of rectangle
     rectangle = Rectangle(4)
     print("Rectangle")
     sides = "4"
@@ -63,6 +91,7 @@ if __name__ == "__main__":
     print("area of rectangle:", rectangle.area())
     print("area of perimeter:", rectangle.perimeter())
 
+    #calculation of triangle
     triangle = Triangle(4)
     print("Triangle")
     sides = "3"
@@ -70,6 +99,7 @@ if __name__ == "__main__":
     print("area of triangle:", triangle.area())
     print("area of perimeter:", triangle.perimeter())
 
+    #calculation of square
     square = Square(4)
     print("Square")
     sides = "4"
