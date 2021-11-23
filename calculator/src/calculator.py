@@ -12,15 +12,14 @@ def multiple(a, b):
 def devide(a, b):
     return a / b
 
-enterYourFunction = {
-    1: add,
-    2: subtract,
-    3: multiple,
-    4: devide
-}
-
 def switch(operation, a, b):
-  return enterYourFunction.get(operation)(a, b)
+    enterYourFunction = {
+        1: add,
+        2: subtract,
+        3: multiple,
+        4: devide
+    }
+    return enterYourFunction.get(operation)(a, b)
 
 print('''enter_your_perform_operation:~
                     1. Addition
@@ -38,3 +37,7 @@ if choice>=1 and choice<=4:
 
 else:
     print("Enter valid Your Function between 1 to 4")
+
+
+
+
