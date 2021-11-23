@@ -6,7 +6,7 @@ from ex1 import Circle
 
 
 if __name__ == "__main__":
-    triangle = Triangle(5,6,7)
+    triangle = Triangle(10,5)
     triangle.tri_area()
     rectangle = Rectangle(10,5)
     rectangle.area()

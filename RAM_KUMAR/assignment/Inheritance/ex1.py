@@ -12,16 +12,16 @@ class Shape:
 # Here we declare that the Triangle class inherits from the Shape class
 
 class Triangle(Shape):
-    def __init__(self, side_a, side_b, side_c):
-        self.side_a = side_a
-        self.side_b = side_b
-        self.side_c = side_c             
+    def __init__(self, base, height):
+        self.base = base
+        self.height = height
+                   
 
-    def tri_area(self):  
-        super().__sides__(3)  
-        s= (self.side_a + self.side_b + self .side_c) / 2       
-        area = (s*(s-self.side_a)*(s-self.side_b)*(s-self.side_c)) ** 0.5
+    def area(self):  
+        super().__sides__(3)
+        area = 0.5 * self.base * self.height         
         print("Area of a Triangle is...",area)
+        return area
 
 # Here we declare that the Rectangle class inherits from the Shape class
 
@@ -34,6 +34,7 @@ class Rectangle (Shape):
          super().__sides__(4)
          area = self.length * self.breadth
          print("Area of a Rectangle is...",area)
+         return area
 
 # Here we declare that the Square class inherits from the Rectangle class
 
@@ -46,6 +47,7 @@ class Square(Rectangle):
         super().__sides__(4)
         area = self.length * self.length
         print("Area of a Square is...",area)
+        return area
 
 
 # Here we declare that the Circle class inherits from the Shape class
@@ -57,10 +59,12 @@ class Circle(Shape):
     def area(self):        
         area = math.pi * self.radius * self.radius
         print("Area of a Cicle is...",area)
+        return area
 
     def perimeter(self):
         perimeter = 2 * math.pi * self.radius
         print("Perimeter of a Cicle is...",perimeter)
+        return perimeter
 
 
 
